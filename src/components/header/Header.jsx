@@ -13,7 +13,7 @@ export default function Header({items=[], bgColor = "", activeColor=""}) {
     <header className={`fixed ${scrollDirection === "down" ? "max-lg:-top-24" : "max-lg:top-0"} ${bgColor} w-full lg:w-[260px] h-[70px] lg:h-screen max-lg:px-[32px] flex lg:grid lg:grid-rows-[95px,1fr]
      z-50 transition-all duration-500`}>
         <h1 className="font-bold text-2xl self-center lg:pl-[40px]">ReactFlix</h1>
-        <nav className="w-full grid ">
+        <nav className="w-full grid justify-end">
             <ul className={menuIsOpen ? `fixed ${ulStyle} top-0 translate-x-0` : `absolute ${ulStyle} ${ scrollDirection === "down" ? "top-24" : "top-0"} max-lg:translate-x-[400px]`}>
                 <Close setMenu={setMenuIsOpen}/>
                 {items.map((item) => {
