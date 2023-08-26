@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import LayoutScreens from "../components/LayoutScreens";
 
 export default function MoviesScreen({getFetch,data}) {
 
@@ -10,10 +11,8 @@ export default function MoviesScreen({getFetch,data}) {
       }, [])
 
   return (
-    <div className="lg:pl-[260px] lg:pt-[95px]">    
-      <div className='w-full grid place-content-center gap-x-[25px] md:grid-cols-2 grid-rows-[50px,1fr] place-items-center md:grid-cols-[repeat(auto-fill,230px)] gap-y-[25px] md:gap-y-[50px] '>  
-      <h2 className="col-span-full text-3xl font-bold mr-auto">Movies</h2>
-        
+
+    <LayoutScreens title="Movies">
         {
           data == null?
             <div>Cargando...</div>
@@ -26,9 +25,10 @@ export default function MoviesScreen({getFetch,data}) {
                 description={movie.release_date}
               />
             ))
-        }      
-      </div>
+        }  
+    </LayoutScreens>
 
-    </div>
+    
+
   )
 }
