@@ -7,7 +7,7 @@ export default function MoviesScreen({getFetch,data}) {
 
 
     useEffect(() => {
-      getFetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US')
+      getFetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1')
       }, [])
 
   return (

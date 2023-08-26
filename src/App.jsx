@@ -8,7 +8,9 @@ import FamousPeopleScreen from './routes/FamousPeopleScreen';
 import HomeScreen from './routes/HomeScreen';
 
 function App() {
+
   const [data, setData] = useState(null)
+
 
   const options = {
     method: 'GET',
@@ -34,7 +36,8 @@ function App() {
       <Header 
         items={["home","movies","TV series","famous people"]}
         bgColor='bg-[#25243A]'
-        activeColor='bg-[#5179EF]'/>
+        activeColor='bg-[#5179EF]'
+        getFetch={getFetch} />
 
               <Routes>
                 <Route 
