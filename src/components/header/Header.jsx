@@ -9,10 +9,10 @@ export default function Header({items=[], bgColor = "", activeColor="", getFetch
 
     const scrollDirection = useScrollDirection()
 
-    const ulStyle = `overflow-auto pt-5 max-lg:h-screen ${bgColor} grid grid-rows-[repeat(5,50px),25px,repeat(auto-fit,50px)]  right-0 transition-transform duration-700 delay-150 lg:static lg:w-full lg:bg-transparent lg:p-0 lg:grid z-[1000]`
+    const ulStyle = `overflow-auto pt-5 max-lg:h-screen ${bgColor} grid max-lg:grid-rows-[repeat(5,50px),25px,repeat(3,50px)] lg:grid-rows-[repeat(4,50px),25px,repeat(3,50px)]  right-0 transition-transform duration-700 delay-150 lg:static lg:w-full lg:bg-transparent lg:p-0 z-[1000]`
 
   return (
-    <header className={`fixed  ${scrollDirection === "down" ? "max-lg:-top-24" : "max-lg:top-0"} ${bgColor} w-full lg:w-[260px] h-[70px] lg:h-screen max-lg:px-[32px] flex lg:grid lg:grid-rows-[95px,1fr] z-50 transition-all duration-500`}>
+    <header className={`fixed  ${scrollDirection === "down" ? "max-lg:-top-24" : "max-lg:top-0"} ${bgColor} w-full lg:w-[260px] h-[70px] lg:h-screen max-lg:px-[32px] flex lg:grid lg:grid-rows-[95px,1fr] z-50 transition-all duration-500 lg:static`}>
         <h1 className="font-bold text-2xl self-center lg:pl-[40px]">ReactFlix</h1>
         <nav className="w-full grid max-lg:justify-end">
             <ul className={menuIsOpen ? `fixed ${ulStyle} top-0 translate-x-0` : `absolute ${ulStyle} ${ scrollDirection === "down" ? "top-24" : "top-0"} max-lg:translate-x-[400px]`}>

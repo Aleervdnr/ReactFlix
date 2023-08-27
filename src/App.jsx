@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import './App.css'
 import Header from './components/header/Header.jsx';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -6,11 +6,11 @@ import MoviesScreen from './routes/MoviesScreen';
 import TVScreen from './routes/TVScreen';
 import FamousPeopleScreen from './routes/FamousPeopleScreen';
 import HomeScreen from './routes/HomeScreen';
+import DataProvider from './context/DataProvider';
 
 function App() {
 
   const [data, setData] = useState(null)
-
 
   const options = {
     method: 'GET',
@@ -32,61 +32,63 @@ function App() {
 
  
   return (
-    <div className='bg-fixed bg-gradient-to-b lg:bg-gradient-to-tr from-[#1F1E31]  to-[#364567] text-white max-lg:pt-[70px] lg:grid'>
-      <Header 
-        items={["home","movies","TV series","famous people"]}
-        bgColor='bg-[#25243A]'
-        activeColor='bg-[#5179EF]'
-        getFetch={getFetch} />
+    <DataProvider>
+      <div className='bg-fixed bg-gradient-to-b lg:bg-gradient-to-tr from-[#1F1E31]  to-[#364567] text-white max-lg:pt-[70px] lg:grid lg:grid-cols-[260px,1fr]'>
+        <Header 
+          items={["home","movies","TV series","famous people"]}
+          bgColor='bg-[#25243A]'
+          activeColor='bg-[#5179EF]'
+          getFetch={getFetch} />
 
-              <Routes>
-                <Route 
-                  path='/' 
-                  element={
-                    <HomeScreen 
-                      getFetch={getFetch} 
-                      data={data} 
-                    />
-                  }
-                />
+                <Routes>
+                  <Route 
+                    path='/' 
+                    element={
+                      <HomeScreen 
+                        getFetch={getFetch} 
+                        data={data} 
+                      />
+                    }
+                  />
 
-                <Route 
-                  path='/TVseries' 
-                  element={
-                    <TVScreen 
-                      getFetch={getFetch} 
-                      data={data} 
-                    />
-                  } 
-                />
+                  <Route 
+                    path='/TVseries' 
+                    element={
+                      <TVScreen 
+                        getFetch={getFetch} 
+                        data={data} 
+                      />
+                    } 
+                  />
 
-                <Route 
-                  path='/movies' 
-                  element={
-                    <MoviesScreen 
-                      getFetch={getFetch} 
-                      data={data} 
-                    />
-                  } 
-                />
+                  <Route 
+                    path='/movies' 
+                    element={
+                      <MoviesScreen 
+                        getFetch={getFetch} 
+                        data={data} 
+                      />
+                    } 
+                  />
 
-                <Route 
-                  path='/famouspeople' 
-                  element={
-                    <FamousPeopleScreen 
-                      getFetch={getFetch} 
-                      data={data}
-                    />
-                  } 
-                />
+                  <Route 
+                    path='/famouspeople' 
+                    element={
+                      <FamousPeopleScreen 
+                        getFetch={getFetch} 
+                        data={data}
+                      />
+                    } 
+                  />
 
-                <Route
-                  path='/*'
-                  element={<Navigate to="/"/>}
-                />
-              </Routes>
-      
-    </div>
+                  <Route
+                    path='/*'
+                    element={<Navigate to="/"/>}
+                  />
+                </Routes>
+        
+      </div>
+    </DataProvider>
   )
 }
 

@@ -1,12 +1,12 @@
 export default function MovieCard({title, img, description}) {
   return (
     <div
-        className="w-[310px] h-[180px] grid grid-cols-[120px,1fr] md:grid-cols-1 md:h-[410px] md:w-[230px] md:gap-[14px]"
+        className="grid grid-cols-[118px] grid-rows-[180px,1fr] md:grid-cols-[200px] md:grid-rows-[300px,1fr] md:w-[230px] md:gap-[14px] hover:scale-110 transition-transform"
     >
       
         <img src={`https://image.tmdb.org/t/p/original${img}`} alt="" />
       
-        <div className="flex flex-col max-md:border max-md:border-l-0 max-md:pl-[20px] max-md:pt-[14px] max-md:bg-[#25243A]">
+        <div className="flex flex-col ">
             <span className="font-bold">{title}</span>
             <span className="font-bold">{description}</span>
         </div>

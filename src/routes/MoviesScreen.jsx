@@ -13,19 +13,21 @@ export default function MoviesScreen({getFetch,data}) {
   return (
 
     <LayoutScreens title="Movies">
-        {
-          data == null?
-            <div>Cargando...</div>
-            :
-            data.map(movie => (
-              <MovieCard 
-                key={movie.id}
-                title={movie.title} 
-                img={movie.poster_path} 
-                description={movie.release_date}
-              />
-            ))
-        }  
+      <div>
+          {
+            data == null?
+              <div>Cargando...</div>
+              :
+              data.map(movie => (
+                <MovieCard 
+                  key={movie.id}
+                  title={movie.title} 
+                  img={movie.poster_path} 
+                  description={movie.release_date}
+                />
+              ))
+          }  
+      </div>
     </LayoutScreens>
 
     
